@@ -12,14 +12,12 @@ export class CreateUserUseCase {
 
   async execute({
     name,
-    username,
     password,
     email,
     drive_license,
   }: ICreteUserDTO): Promise<void> {
     await this.usersRepository.create({
       name,
-      username,
       password,
       email,
       drive_license,
