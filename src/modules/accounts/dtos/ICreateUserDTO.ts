@@ -3,4 +3,6 @@ export interface ICreteUserDTO {
   password: string;
   email: string;
   drive_license: string;
+  id?: string;
+  avatar?: string;
 }
