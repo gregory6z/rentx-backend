@@ -2,7 +2,7 @@ import { hash } from "bcryptjs";
 import { inject, injectable } from "tsyringe";
 
 import { AppError } from "../../../../errors/AppError";
-import { ICreteUserDTO } from "../../dtos/ICreateUserDTO";
+import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
 import { IUsersRepository } from "../../repositories/IUsersRepository";
 
 @injectable()
@@ -17,7 +17,7 @@ export class CreateUserUseCase {
     password,
     email,
     drive_license,
-  }: ICreteUserDTO): Promise<void> {
+  }: ICreateUserDTO): Promise<void> {
     const userAlreadyExists = await this.usersRepository.findByEmail(email);
 
     if (userAlreadyExists) {

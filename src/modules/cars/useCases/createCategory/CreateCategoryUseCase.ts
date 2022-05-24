@@ -7,12 +7,6 @@ interface IRequest {
   name: string;
   description: string;
 }
-/**
- * [] definir o tipo de retorno
- * [x] Alterar o retorno de error
- * [] Acessar o repositório
- * [] Retornar algo
- */
 
 @injectable()
 export class CreateCategoryUseCase {

@@ -4,6 +4,7 @@ import { CreateCategoryUseCase } from "./CreateCategoryUseCase";
 
 let createCategoryUseCase: CreateCategoryUseCase;
 let categoriesRepositoryInMemory: CategoriesRepositoryInMemory;
+
 describe("Create Category", () => {
   beforeEach(() => {
     categoriesRepositoryInMemory = new CategoriesRepositoryInMemory();
@@ -12,9 +13,9 @@ describe("Create Category", () => {
     );
   });
 
-  it("should be able to create a new category", async () => {
+  it("Should be able to create a new category", async () => {
     const category = {
-      name: "Category test",
+      name: "Category Test",
       description: "Category description Test",
     };
 
@@ -30,22 +31,22 @@ describe("Create Category", () => {
     expect(categoryCreated).toHaveProperty("id");
   });
 
-  it("should not be able to create a new category with name exists", async () => {
-    expect(async () => {
-      const category = {
-        name: "Category test",
-        description: "Category description Test",
-      };
+  it("Should not be able to create a new category with the same name", async () => {
+    const category = {
+      name: "Category Test",
+      description: "Category description Test",
+    };
 
-      await createCategoryUseCase.execute({
+    await createCategoryUseCase.execute({
+      name: category.name,
+      description: category.description,
+    });
+
+    await expect(
+      createCategoryUseCase.execute({
         name: category.name,
         description: category.description,
-      });
-
-      await createCategoryUseCase.execute({
-        name: category.name,
-        description: category.description,
-      });
-    }).rejects.toBeInstanceOf(AppError);
+      }),
+    ).rejects.toBeInstanceOf(AppError);
   });
 });
