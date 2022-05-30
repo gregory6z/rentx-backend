@@ -43,4 +43,19 @@ describe("Authenticate User", () => {
       });
     }).rejects.toBeInstanceOf(AppError);
   });
+
+  it("should not be able to authenticate an nonexistent user", async () => {
+    expect(async () => {
+      const user: ICreateUserDTO = {
+        drive_license: "99999",
+        email: "user@user.com",
+        password: "1234",
+        name: "User Test Error",
+      };
+
+      await createUserUseCase.execute(user);
+
+      await authenticateUserUseCase.execute(user);
+    }).rejects.toBeInstanceOf(AppError);
+  });
 });

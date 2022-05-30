@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
+// import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
 
 export class Car {
@@ -10,7 +10,7 @@ export class Car {
 
   daily_rate: number;
 
-  available_rate: boolean;
+  available: boolean;
 
   license_plate: string;
 
@@ -22,9 +22,11 @@ export class Car {
 
   created_at: Date;
 
-  // constructor() {
-  //   if (!this.id) {
-  //     this.id = uuidV4();
-  //   }
-  // }
+  constructor() {
+    if (!this.id) {
+      this.id = uuidV4();
+      this.available = true;
+      this.created_at = new Date();
+    }
+  }
 }
