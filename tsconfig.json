@@ -1,12 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es2016",
-
+    "target": "es2020",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-
     "module": "commonjs",
-
     "baseUrl": "./src",
     "paths": {
       "@modules/*": ["modules/*"],
@@ -17,13 +14,9 @@
     },
 
     "resolveJsonModule": true,
-
     "outDir": "./dist",
-
     "esModuleInterop": true,
-
     "forceConsistentCasingInFileNames": true,
-
     "skipLibCheck": true
   }
 }
