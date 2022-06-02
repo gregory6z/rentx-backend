@@ -19,11 +19,11 @@ describe("Authenticate User", () => {
     createUserUseCase = new CreateUserUseCase(usersRepositoryInMemory);
   });
 
-  it("should be able to authenticate an user", async () => {
+  it("Should be able to authenticate an user", async () => {
     const user: ICreateUserDTO = {
-      driver_license: "00123",
+      driver_license: "0001234",
       email: "user@test.com",
-      password: "password123",
+      password: "1234",
       name: "User Test",
     };
 
@@ -33,29 +33,32 @@ describe("Authenticate User", () => {
       email: user.email,
       password: user.password,
     });
+
     expect(result).toHaveProperty("token");
   });
-  it("should not be able to authenticate an nonexistent user", async () => {
-    expect(async () => {
-      await authenticateUserUseCase.execute({
+  it("Should not be able to authenticated an nonexistent user", async () => {
+    await expect(
+      authenticateUserUseCase.execute({
         email: "false@email.com",
         password: "1234",
-      });
-    }).rejects.toBeInstanceOf(AppError);
+      }),
+    ).rejects.toEqual(new AppError("Email or password incorrect"));
   });
+  it("Should not be able to aunthenticate with incorrect password", async () => {
+    const user: ICreateUserDTO = {
+      driver_license: "9999",
+      email: "user@user.com",
+      password: "1234",
+      name: "User Test Error",
+    };
 
-  it("should not be able to authenticate an nonexistent user", async () => {
-    expect(async () => {
-      const user: ICreateUserDTO = {
-        driver_license: "99999",
-        email: "user@user.com",
-        password: "1234",
-        name: "User Test Error",
-      };
+    await createUserUseCase.execute(user);
 
-      await createUserUseCase.execute(user);
-
-      await authenticateUserUseCase.execute(user);
-    }).rejects.toBeInstanceOf(AppError);
+    await expect(
+      authenticateUserUseCase.execute({
+        email: user.email,
+        password: "incorrectPassword",
+      }),
+    ).rejects.toEqual(new AppError("Email or password incorrect"));
   });
 });
