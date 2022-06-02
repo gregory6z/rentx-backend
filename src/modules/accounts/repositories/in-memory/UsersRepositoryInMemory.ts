@@ -7,7 +7,7 @@ export class UsersRepositoryInMemory implements IUsersRepository {
   Users: User[] = [];
 
   async create({
-    drive_license,
+    driver_license,
     email,
     password,
     name,
@@ -15,7 +15,7 @@ export class UsersRepositoryInMemory implements IUsersRepository {
     const user = new User();
 
     Object.assign(user, {
-      drive_license,
+      driver_license,
       email,
       password,
       name,

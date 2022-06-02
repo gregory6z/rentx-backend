@@ -11,13 +11,12 @@ import { Connection, createConnection, getConnectionOptions } from "typeorm";
 //     ...options,
 //   });
 // });
-export default async (host = "database"): Promise<Connection> => {
+export default async (host = "rentx"): Promise<Connection> => {
   const defaultOptions = await getConnectionOptions();
 
   return createConnection(
     Object.assign(defaultOptions, {
       host,
-      // Aqui nessa linha está sendo colocado uma verificação para a trabalhar com o BD de teste, no arquivo (package.json), no script de test incluir (NODE_ENV=test), para poder rodar o BD de teste.
     }),
   );
 };
