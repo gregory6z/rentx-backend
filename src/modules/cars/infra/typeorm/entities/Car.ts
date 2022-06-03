@@ -4,6 +4,7 @@ import {
   Entity,
   JoinColumn,
   JoinTable,
+  ManyToMany,
   ManyToOne,
   PrimaryColumn,
 } from "typeorm";
@@ -13,7 +14,7 @@ import { Category } from "./Category";
 import { Specification } from "./Specification";
 
 @Entity("cars")
-export class Car {
+class Car {
   @PrimaryColumn()
   id: string;
 
@@ -38,20 +39,22 @@ export class Car {
   @Column()
   brand: string;
 
+  // Aqui foi criado esse (category), para unir a coluna abaixo a (category_id)e também a refêrencia com a tabela (categories).
   @ManyToOne(() => Category)
   @JoinColumn({ name: "category_id" })
   category: Category;
 
-  @ManyToOne(() => Specification)
+  @Column()
+  category_id: string;
+
+  // Aqui foi feio a especificação da tabela (ManyToMany) referente a tabela (specifications), a junção(JoinTable) da coluna que faz referência na migration/tabela de (SpecificationCars), passando os nomes das colunas que fazem referência, e passado um atributo (specifications[], como array, para poder fazer toda essa relação).
+  @ManyToMany(() => Specification)
   @JoinTable({
     name: "specifications_cars",
     joinColumns: [{ name: "car_id" }],
     inverseJoinColumns: [{ name: "specification_id" }],
   })
   specifications: Specification[];
-
-  @Column()
-  category_id: string;
 
   @CreateDateColumn()
   created_at: Date;
@@ -63,3 +66,5 @@ export class Car {
     }
   }
 }
+
+export { Car };
