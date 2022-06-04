@@ -49,24 +49,24 @@ export class CreateRentals1648756280715 implements MigrationInterface {
             default: "now()",
           },
         ],
-        foreignKeys: [
-          {
-            name: "FKCarRental",
-            referencedTableName: "cars",
-            referencedColumnNames: ["id"],
-            columnNames: ["car_id"],
-            onDelete: "SET NULL",
-            onUpdate: "SET NULL",
-          },
-          {
-            name: "FKUserRental",
-            referencedTableName: "users",
-            referencedColumnNames: ["id"],
-            columnNames: ["user_id"],
-            onDelete: "SET NULL",
-            onUpdate: "SET NULL",
-          },
-        ],
+        // foreignKeys: [
+        //   {
+        //     name: "FKCarRental",
+        //     referencedTableName: "cars",
+        //     referencedColumnNames: ["id"],
+        //     columnNames: ["car_id"],
+        //     onDelete: "SET NULL",
+        //     onUpdate: "SET NULL",
+        //   },
+        //   {
+        //     name: "FKUserRental",
+        //     referencedTableName: "users",
+        //     referencedColumnNames: ["id"],
+        //     columnNames: ["user_id"],
+        //     onDelete: "SET NULL",
+        //     onUpdate: "SET NULL",
+        //   },
+        // ],
       }),
     );
   }
