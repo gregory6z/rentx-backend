@@ -42,7 +42,7 @@ export class CreateRentalUseCase {
     );
 
     if (rentalOpenToUser) {
-      throw new AppError("there's a rental in progress for user!");
+      throw new AppError("There's a rental in progress for use!");
     }
 
     const dateNow = this.dateProvider.dateNow();

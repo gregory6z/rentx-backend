@@ -151,7 +151,7 @@
         },
         "responses": {
           "200": {
-            "decription": "Success"
+            "description": "Success"
           },
           "400": {
             "description": "Email or password incorect!"
