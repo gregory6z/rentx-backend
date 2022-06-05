@@ -20,9 +20,9 @@ export class DevolutionRentalUseCase {
     @inject("DayjsDateProvider")
     private dateProvider: IDateProvider,
   ) {}
-  async execute({ id, user_id }: IRequest) {
+  async execute({ id }: IRequest) {
     const rental = await this.rentalsRepository.findById(id);
-    const car = await this.carsRepository.findById(id);
+    const car = await this.carsRepository.findById(rental.car_id);
 
     const minimum_daily = 1;
 
