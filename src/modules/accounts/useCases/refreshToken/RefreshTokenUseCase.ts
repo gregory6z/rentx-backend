@@ -50,6 +50,7 @@ export class RefreshTokenUseCase {
       refresh_token,
       user_id,
     });
+
     return refresh_token;
   }
 }
