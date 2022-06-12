@@ -13,7 +13,7 @@ import { IRentalsRepository } from "@modules/rentals/repositories/IRentalsReposi
 import { container } from "tsyringe";
 import "@shared/container/providers";
 import { IUsersTokensRepository } from "@modules/accounts/repositories/IUsersTokensRepository";
-import { UsersTokensRepository } from "@modules/accounts/infra/typeorm/repositories/UserTokensRepository";
+import { UsersTokensRepository } from "@modules/accounts/infra/typeorm/repositories/UsersTokensRepository";
 
 container.registerSingleton<ICategoriesRepository>(
   "CategoriesRepository",
