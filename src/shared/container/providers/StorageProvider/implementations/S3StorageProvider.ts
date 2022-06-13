@@ -14,6 +14,7 @@ export class S3StorageProvider implements IStorageProvider {
       region: process.env.AWS_BUCKET_REGION,
     });
   }
+
   async save(file: string, folder: string): Promise<string> {
     const originalName = resolve(upload.tmpFolder, file);
 

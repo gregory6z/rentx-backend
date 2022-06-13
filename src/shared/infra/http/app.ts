@@ -1,5 +1,6 @@
 /* eslint-disable import-helpers/order-imports */
 import "reflect-metadata";
+import "dotenv/config";
 import express, { NextFunction, Request, Response } from "express";
 import "express-async-errors";
 
