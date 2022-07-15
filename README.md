@@ -1,54 +1,86 @@
-# Cadastro de carro
+<h1 align="center">
+  <img alt="Rentx" title="Rentx" width="350px"  src=".github/logo.svg" />
+</h1>
 
-**RF**
-Deve ser possível cadastrar um novo carro.
+<h3 align="center">
+  Easy way to rent a car
+</h3>
 
-**RN**
-Não deve ser possível cadastrar um carro com uma placa já existente.
-O carro deve ser cadastrado por padrão, com disponibilidade.
+<p align="center">
+  <a href="https://www.linkedin.com/in/gregory-praxedes-2189b4207/"><img alt="Made by" src="https://img.shields.io/badge/made%20by-Elias%20Gabriel-%23DC1637"></a>
+  <img alt="GitHub" src="https://img.shields.io/github/license/EliasGcf/rentx?color=%23DC1637">
+</p>
 
-- O usuário responsável pelo cadastro deve ser um usuário administrador.
+<p align="center">
+  <a href="#-technologies">Technologies</a> •
+  <a href="#-getting-started">Getting started</a> •
+  <a href="#-license">License</a>
+</p>
 
-# Listagem de carros
+<p id="insomniaButton" align="center">
+  <a href="https://insomnia.rest/run/?label=Rentx%20API&uri=https%3A%2F%2Fraw.githubusercontent.com%2FEliasGcf%2Frentx%2Fmain%2FInsomnia.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
+</p>
 
-**RF**
-Deve ser possível listar todos os carros disponíveis.
-Deve ser possível listar todos os carros disponíveis pelo nome da categoria.
-Deve ser possível listar todos os carros disponíveis pelo nome da marca.
-Deve ser possível listar todos os carros disponíveis pelo nome da carro.
+## 🚀 Technologies
 
-**RN**
-O usuário não precisa estar logado no sistema.
+- [TypeScript](https://www.typescriptlang.org/)
+- [Express](https://expressjs.com/)
+- [Multer](https://github.com/expressjs/multer)
+- [TypeORM](https://typeorm.io/#/)
+- [JSON Web Token](https://jwt.io/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Jest](https://jestjs.io/)
+- [SuperTest](https://github.com/visionmedia/supertest)
 
-# Cadastro de Especificação no carro
+## 💻 Getting started
 
-**RF**
-Deve ser possível cadastrar uma especificação para um carro.
+Import the `Insomnia.json` on Insomnia App or click on [Run in Insomnia](#insomniaButton) button.
 
-**RN**
-Não deve ser possível cadastrar uma especificação para um carro não cadastrado.
-Não deve ser possível cadastrar uma especificação já existente para o mesmo carro.
-O usuário responsável pelo cadastro deve ser um administrador.
+### Requirements
 
-# Cadastro de imagens do carro
+- [Node.js](https://nodejs.org/en/)
+- [Yarn](https://classic.yarnpkg.com/) or [npm](https://www.npmjs.com/)
+- [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/)
 
-**RF**
-Deve ser possível cadastrar a imagem do carro.
+**Clone the project and access the folder**
 
-**RNF**
-Utilizar o multer para upload dos arquivos
+```bash
+git clone https://github.com/gregory6z/rentx.git && cd rentx
+```
 
-**RN**
+**Follow the steps below**
 
-O usuário pode cadastrar mais de uma imagem para o mesmo carro.
-O usuário responsável pelo cadastro deve ser um administrador.
+```bash
+# Install the dependencies
+$ yarn
 
-# Aluguel de carros
+# Make a copy of '.env.example' to '.env'
+# and set with YOUR environment variables.
+# The aws variables do not need to be filled for dev environment
+$ cp .env.example .env
 
-**RF**
-Deve ser possível cadastrar um Aluguel
+# Start all the services and the application with Docker Compose
+$ docker-compose up -d
 
-**RN**
-O aluguel deve ter duração mínima de 24 horas.
-Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo carro.
-Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo usuário.
+# Once the services are running, run the migrations
+$ yarn migration:run
+
+# Run the seeds
+$ yarn seed:run
+
+# To finish, run the api service
+$ yarn dev:server
+
+# Well done, project is started!
+```
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+<p align="center">
+  Made with 💜&nbsp; by <a href="https://www.linkedin.com/in/gregory-praxedes-2189b4207/">PRAXEDES Gregory</a>
+</p>
+
