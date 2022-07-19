@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://www.linkedin.com/in/gregory-praxedes-2189b4207/"><img alt="Made by" src="https://img.shields.io/badge/made%20by-Elias%20Gabriel-%23DC1637"></a>
-  <img alt="GitHub" src="https://img.shields.io/github/license/EliasGcf/rentx?color=%23DC1637">
+
 </p>
 
 <p align="center">
